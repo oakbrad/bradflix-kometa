@@ -1,0 +1,29 @@
+collections:
+  Films with Bonus Features:
+    sort_title: ----Films with Bonus Features
+    url_poster: https://i.imgur.com/D3kY7xh.png
+    plex_all: true
+    collection_order: random
+    filters:
+      label: 'Bonus Features'
+
+  Films with Commentary:
+    sort_title: ----Films with Commentary
+    url_poster: https://i.imgur.com/DAXvOe5.png
+    plex_all: true
+    collection_order: title.asc
+    filters:
+      audio_track_title: Commentary
+    item_label:
+      - "Commentary Track"
+    item_radarr_tag:
+      - "Commentary Track"
+
+  4K:
+    sort_title: ---4K
+    url_poster: https://i.imgur.com/Y83KAqv.png
+    plex_all: true
+    collection_order: added.desc
+    filters:
+      filepath.regex:
+        - '2160p'

@@ -1,0 +1,46 @@
+collections:
+  # Make a collection of all the physical releases I own
+  Brad's Collection:
+    sort_title: -Brad's Film Collection
+    url_poster: https://i.imgur.com/6guiTgs.png
+    summary: Movies that Brad owns physical copies of on Bluray or DVD.
+    letterboxd_list_details:
+      - https://letterboxd.com/bradwenner/list/blu-rays/
+      - https://letterboxd.com/bradwenner/list/dvds/
+      - https://letterboxd.com/bradwenner/list/my-criterion-collection/
+    item_label:
+      - "Brad's Collection"
+      - "Owned"
+    item_radarr_tag:
+      - "Brad's Collection"
+      - "Owned"
+    # add missing films to Radarr
+    radarr_add_missing: true
+    radarr_search: true
+
+  # Tag DVDs
+  Brad's DVDs:
+    build_collection: false
+    letterboxd_list: https://letterboxd.com/bradwenner/list/dvds/
+    item_label:
+      - "DVD"
+    item_radarr_tag:
+      - "DVD"
+
+  # Tag Blurays
+  Brad's Blurays:
+    build_collection: false
+    letterboxd_list: https://letterboxd.com/bradwenner/list/blu-rays
+    item_label:
+      - "Bluray"
+    item_radarr_tag:
+      - "Bluray"
+
+  # Tag Criterion as DVD. Could add the Bluray copies to my Bluray list and see if it stacks on top of DVD?
+  Brad's Criterion Discs:
+    build_collection: false
+    letterboxd_list: https://letterboxd.com/bradwenner/list/my-criterion-collection/
+    item_label:
+      - "DVD"
+    item_radarr_tag:
+      - "DVD"

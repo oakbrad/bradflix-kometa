@@ -1,0 +1,29 @@
+collections:
+  Criterion Collection:
+    sort_title: -----Criterion Collection
+    url_poster: https://i.imgur.com/voKnLuE.png
+    plex_all: true
+    collection_order: added.desc
+    filters:
+      filepath: Criterion
+    # Set to Bluray Remux quality
+    radarr_add_existing: true   # include existing Radarr entries
+    radarr_upgrade_existing: true
+    radarr_ignore_cache: true
+    radarr_quality: 1080p Bluray HD
+    radarr_search: true
+    # Add Metadata
+    item_label:
+      - "Criterion Collection"
+    item_radarr_tag:
+       - "Criterion Collection"
+    sync_mode: sync
+
+  Stop Upgrading Criterion Remuxes:
+    build_collection: false
+    plex_all: true
+    filters:
+      collection: "Criterion Collection"
+      filepath.regex: "Remux"
+    radarr_add_existing: true
+    radarr_monitor_existing: false

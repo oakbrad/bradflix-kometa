@@ -1,0 +1,26 @@
+overlays:
+  Brad's DVD Overlay:
+    overlay:
+      name: DVD
+      file: /config/overlay-dvd.png
+      horizontal_offset: 0
+      horizontal_align: right
+      vertical_offset: 0
+      vertical_align: bottom
+    plex_all: true
+    filters:
+      label:
+        - 'DVD'
+
+  Brad's Bluray Overlay:
+    overlay:
+      name: DVD
+      file: /config/overlay-bluray.png
+      horizontal_offset: 0
+      horizontal_align: right
+      vertical_offset: 0
+      vertical_align: bottom
+    plex_all: true
+    filters:
+      label:
+        - 'Bluray'

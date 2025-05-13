@@ -1,0 +1,21 @@
+collections:
+  Studio Ghibli:
+    sort_title: --Studio Ghibli
+    url_poster: https://i.imgur.com/U0iw0Ub.png
+    plex_all: true
+    collection_order: release.asc
+    filters:
+      studio: Studio Ghibli
+    radarr_add_existing: true   # include existing Radarr entries
+    radarr_upgrade_existing: true
+    radarr_ignore_cache: true
+    radarr_quality: 4K Ultra HD
+    radarr_search: true
+    # Add Metadata
+    item_label:
+      - "Studio Ghibli"
+      - "Anime"
+    item_radarr_tag:
+       - "Studio Ghibli"
+       - "Anime"
+    sync_mode: sync

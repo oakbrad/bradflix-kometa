@@ -1,0 +1,12 @@
+collections:
+  Popular on Bradflix:
+    url_poster: https://i.imgur.com/mfKZtr8.png
+    sort_title: -Popular on Bradflix
+    sync_mode: sync
+    collection_order: custom
+    item_label:
+      - Popular on Bradflix
+    tautulli_popular:
+      list_days: 180
+      list_size: 20
+      list_minimum: 1

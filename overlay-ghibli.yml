@@ -1,0 +1,13 @@
+overlays:
+  Studio Ghibli:
+    overlay:
+      name: Studio Ghibli
+      file: /config/overlay-ghibli.png
+      horizontal_offset: 0
+      horizontal_align: right
+      vertical_offset: 0
+      vertical_align: bottom
+    plex_all: true
+    filters:
+      label:
+        - "Studio Ghibli"

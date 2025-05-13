@@ -1,0 +1,20 @@
+collections:
+  A24:
+    sort_title: --A24 Films
+    url_poster: https://i.imgur.com/evWPsXi.png
+    tmdb_company: 41077
+    collection_order: release.desc
+    # Add Metadata
+    item_label:
+      - "A24"
+    item_radarr_tag:
+       - "A24"
+    sync_mode: sync
+    item_label.remove:
+      - "Stale"
+    # Set to Bluray Remux quality
+    radarr_add_existing: true   # include existing Radarr entries
+    radarr_upgrade_existing: true
+    radarr_ignore_cache: true
+    radarr_quality: 1080p Bluray HD
+    radarr_search: true

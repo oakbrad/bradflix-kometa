@@ -1,0 +1,37 @@
+# Unpublished Unwatched Movies - downgrade Quality Profile
+collections:
+  Stale Unwatched Movies:
+    build_collection: false     # no Plex collection will be created
+    plex_all: true              # scan every movie in the library
+    filters:
+      added.not: 365            # older than 365 days
+      plays.lt: 1               # never played
+      label.not:
+        - "Criterion Collection"
+        - "Studio Ghibli"
+        - "Bonus Features"
+        - "A24"
+    radarr_add_existing: true   # include existing Radarr entries
+    radarr_upgrade_existing: true
+    radarr_ignore_cache: true
+    radarr_quality: 1080p Archive
+    radarr_search: true
+    # Add Metadata
+    item_label:
+      - "Stale"
+
+# If a Movie is then watched, bump it back up to Bluray HD
+  Upgrade Stale Movies if Watched:
+    build_collection: false      # don’t create a Plex collection
+    plex_all: true               # scan your entire library
+    filters:
+      label: "Stale"     # only items currently tagged “1080p Archive”
+      plays.gte: 1               # that have been played one or more times
+    radarr_add_existing: true    # include existing Radarr entries
+    radarr_upgrade_existing: true
+    radarr_ignore_cache: true
+    radarr_quality: "1080p Bluray HD"
+    radarr_search: true
+    # Remove Stale Metadata
+    item_label.remove:
+      - "Stale"

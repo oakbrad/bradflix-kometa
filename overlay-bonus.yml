@@ -1,0 +1,46 @@
+overlays:
+  Bonus Features:
+    overlay:
+      name: text(Extras)
+      horizontal_offset: 35
+      horizontal_align: left
+      vertical_offset: 35
+      vertical_align: top
+      font_size: 63
+      font_color: "#FFFFFF"
+      back_color: "#00000099"
+      back_radius: 30
+      back_padding: 30
+    plex_all: true
+    filters:
+      label:
+        - 'Bonus Features'
+
+  Commentary:
+    overlay:
+      name: text(Commentary)
+      horizontal_align: center 
+      horizontal_offset: 0
+      vertical_offset: 35
+      vertical_align: top
+      font_size: 63
+      font_color: "#FFFFFF"
+      back_color: "#00000099"
+      back_radius: 30
+      back_padding: 30
+    plex_all: true
+    filters:
+      audio_track_title: Commentary
+
+  4K:
+    overlay:
+      name: 4K
+      file: /config/overlay-4k.png
+      horizontal_offset: 0
+      horizontal_align: left
+      vertical_offset: 0
+      vertical_align: bottom
+    plex_all: true
+    filters:
+      filepath.regex:
+        - '2160p'

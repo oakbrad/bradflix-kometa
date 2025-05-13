@@ -1,0 +1,237 @@
+# PLEX
+plex:
+  url: <<plexurl>>
+  token: <<plextoken>>
+  timeout: 60
+  db_cache:
+  clean_bundles: false
+  empty_trash: false
+  optimize: false
+  verify_ssl:
+# REQUIRED FOR METADATA
+tmdb:
+  apikey: <<tmdbapi>>
+  language: en
+  cache_expiration: 60
+  # blank on purpose, actually
+  region:
+
+# OPTIONAL INTEGRATIONS
+radarr:
+  url: http://radarr:7878
+  token: <<radarrapi>>
+  root_folder_path: /movies
+  add_missing: false
+  add_existing: false
+  upgrade_existing: false
+  monitor_existing: false
+  ignore_cache: false
+  monitor: true
+  availability: announced
+  quality_profile: 1080p Bluray HD
+  tag:
+  search: false
+  radarr_path:
+  plex_path:
+
+# not currently using for anything
+anidb:
+  client: bradskometa
+  version: 1
+  language: en
+  cache_expiration: 60
+  username: <<anidbuser>>
+  password: <<anidbpass>>
+
+# for popularity, watched, etc.
+tautulli:
+  url: http://tautulli:8181
+  apikey: <<tautulliapi>>
+
+
+# LIBARY
+libraries:
+  Movies:
+    #reapply_overlays: true
+    # collections
+    collection_files:
+    # Seasonal Collections
+    - default: seasonal
+      template_variables:
+        sort_prefix: __
+        exclude:
+          - separator
+          - aapi
+          - disabilities
+          - easter
+          - father
+          - independence
+          - memorial
+          - mother
+          - latinx
+          - patrick
+          - veteran
+          - women
+          - mother
+          - father
+        visible_library_mother: true
+        visible_home_mother: true
+        visible_shared_mother: true
+        visible_library_father: true
+        visible_home_father: true
+        visible_shared_father: true
+        visible_library_black_history: true
+        visible_home_black_history: true
+        visible_shared_black_history: true
+        visible_library_christmas: true
+        visible_home_christmas: true
+        visible_shared_christmas: true
+        visible_library_halloween: true
+        visible_home_halloween: true
+        visible_shared_halloween: true
+        visible_library_labor: true
+        visible_home_labor: true
+        visible_shared_labor: true
+        visible_library_lgbtq: true
+        visible_home_lgbtq: true
+        visible_shared_lgbtq: true
+        visible_library_years: true
+        visible_home_years: true
+        visible_shared_years: true
+        visible_library_thanksgiving: true
+        visible_home_thanksgiving: true
+        visible_shared_thanksgiving: true
+        visible_library_valentine: true
+        visible_home_valentine: true
+        visible_shared_valentine: true
+        # metadata
+        item_label:
+          - "{{ .Name }}"
+        item_radarr_tag:
+          - "{{ .Name }}"
+
+    # Create director Collections with >=5 films on Plex
+    - default: director
+      template_variables:
+        minimum_items: 5
+        data:
+          # only check 2 credits deep
+          depth: 2
+        sort_by: release.asc
+        use_separator: false
+        name_format: <<key_name>>'s Films
+        sort_prefix: $
+    # My collections
+    - file: config/collection-tautulli.yml
+    - file: config/collection-physical.yml
+    - file: config/collection-criterion.yml
+    - file: config/collection-bonus.yml
+    - file: config/collection-ghibli.yml
+    - file: config/collection-a24.yml
+    - file: config/collection-stalemovies.yml
+    # poster overlays
+    overlay_files:
+      # physical needs to go first so ribbons can overlap it
+      - file: config/overlay-physical.yml
+      - file: config/overlay-criterion.yml
+      - file: config/overlay-ghibli.yml
+      # Extra Metadata
+      - file: config/overlay-bonus.yml
+  TV Shows:
+    #reapply_overlays: true
+    overlay_files:
+      # Airing status for TV shows
+      - default: status
+        template_variables:
+          horizontal_align: center
+          horizontal_offset: 0
+          vertical_offset: 35
+          vertical_align: bottom
+          font_size: 63
+          font_color_airing: "#0D71DE"
+          font_color_returning: "#50AB0F"
+          font_color_canceled: "#E31620"
+          font_color_ended: "#FFFFFF"
+          back_color: "#00000099"
+          back_radius: 30
+          back_padding: 30          
+  Anime:
+    overlay_files:
+      # adds language flag overlay
+      - default: languages
+        template_variables:
+          hide_text: true
+          initial_vertical_align: top
+          initial_vertical_offset: 8
+          initial_horizontal_offset: 8
+          style: square
+          languages:
+            - en
+            - ja
+      - default: languages
+        template_variables:
+          builder_level: episode
+          hide_text: true
+          initial_vertical_align: top
+          initial_vertical_offset: 8
+          initial_horizontal_offset: 8
+          style: square
+          languages:
+            - en
+            - ja
+      - default: languages
+        template_variables:
+          builder_level: season
+          hide_text: true
+          initial_vertical_align: top
+          initial_vertical_offset: 8
+          initial_horizontal_offset: 8
+          style: square
+          languages:
+            - en
+            - ja
+
+settings:
+  run_order:
+  - operations
+  - metadata
+  - collections
+  - overlays
+  cache: true
+  cache_expiration: 60
+  asset_directory:
+  asset_folders: true
+  asset_depth: 0
+  create_asset_folders: false
+  prioritize_assets: false
+  dimensional_asset_rename: false
+  download_url_assets: false
+  show_missing_assets: true
+  show_missing_season_assets: false
+  show_missing_episode_assets: false
+  show_asset_not_needed: true
+  sync_mode: append
+  default_collection_order:
+  minimum_items: 1
+  item_refresh_delay: 0
+  delete_below_minimum: false
+  delete_not_scheduled: false
+  run_again_delay: 0
+  missing_only_released: false
+  only_filter_missing: false
+  show_unmanaged: true
+  show_unconfigured: true
+  show_filtered: false
+  show_unfiltered: false
+  show_options: false
+  show_missing: true
+  save_report: false
+  tvdb_language: default
+  ignore_ids:
+  ignore_imdb_ids:
+  playlist_sync_to_users:
+  playlist_exclude_users:
+  playlist_report: true
+  custom_repo:
+  overlay_artwork_filetype: webp_lossy
+  overlay_artwork_quality: 90

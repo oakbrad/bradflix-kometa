@@ -1,0 +1,16 @@
+overlays:
+  English Dubs:
+    overlay:
+      name: text(English)
+      horizontal_align: center 
+      horizontal_offset: 0
+      vertical_offset: 35
+      vertical_align: top
+      font_size: 63
+      font_color: "#FFFFFF"
+      back_color: "#00000099"
+      back_radius: 30
+      back_padding: 30
+    plex_all: true
+    filters:
+      audio_track_title: English
