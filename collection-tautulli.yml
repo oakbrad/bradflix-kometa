@@ -7,6 +7,7 @@ collections:
     item_label:
       - Popular on Bradflix
     tautulli_popular:
-      list_days: 180
+      list_days: 60
       list_size: 20
       list_minimum: 1
+      sort_by: viewed.desc
